@@ -1,0 +1,35 @@
+
+<div class="container text-center jumbotron border border-success p-4">
+<h1>Customer App</h1>
+<p>This a customer app description</p>
+</div>
+<div class=" container" >
+<table *ngIf = "!error" class="table table-hover ">
+    <thead class="thead-light border border-success">
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th></th>
+        <th></th>
+    </thead>
+ 
+    <tbody>
+        <tr *ngFor="let customer of customers">
+            <td>{{ customer.firstName }}</td>
+            <td>{{ customer.lastName }}</td>
+            <td>{{ customer.email }}</td>
+            <td><button class="btn-dark" type="button" (click)="updateCustomer(customer.id)">Update</button></td>
+            <td><button class="btn-danger" type="button" (click)="deleteCustomer(customer.id)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<p *ngIf="error">
+    {{error.message}}
+</p>
+
+<!-- [routerLink]="['addCustromer']"-->
+<button  (click)="addCustomer()" routerLinkActive="active-link" class="btn btn-primary">Add New Customer</button>
+    <h5></h5>
+  
